@@ -1,0 +1,35 @@
+<head>  
+<title>flashtest</title>
+<style>
+.post { width:320px; border:1px solid #999; margin:10px auto; padding:0px; font-family:Arial; }
+.like { width:15px; }
+.userphoto { margin:0px; padding:0px; }
+.description { margin:0px; padding:0px;
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+</head>
+<body>
+{{>posts}}
+</body>
+
+<template name="actions">
+<div class="actions">
+<img src="/foamfinger.png" class="like"/> {{likecount}}
+</div>
+</template>
+
+<template name="post">
+<div class="post">
+<p class="description"><img src="http://graph.facebook.com/ryan.otoole.3766/picture" class="userphoto">
+Ryan O. &mdash; foo man chu</p>
+{{>actions}}
+</div>
+</template>
+
+<template name="posts">
+{{#each posts}}
+{{>post}}
+{{/each}}
+</template>
+
+
