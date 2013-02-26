@@ -16,8 +16,16 @@ if (Meteor.isClient) {
         }
     };
 
-    Template.actions.preserve(".like");
-
+    Template.actions.preserve([".like"]);
+    Template.header.preserve([".header"]);
+    Template.nav.events({
+        "click a" : function(e) { 
+            template = $(e.currentTarget).attr('href');       // get the template name to load
+            $("body").html(Meteor.render(Template[template]));    // load the named template
+            Meteor.flush();
+            return false;
+        }
+    });
 }
 
 if (Meteor.isServer) {

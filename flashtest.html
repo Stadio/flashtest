@@ -1,10 +1,14 @@
 <head>  
 <title>flashtest</title>
 <style>
-.post { width:320px; border:1px solid #999; margin:10px auto; padding:0px; font-family:Arial; }
+body { font-family:Arial;}
+.post { width:320px; border:1px solid #999; margin:10px auto; padding:0px;  }
 .like { width:15px; }
 .userphoto { margin:0px; padding:0px; }
-.description { margin:0px; padding:0px;
+.description { margin:0px; padding:0px; }
+.nav { width:320px; margin:0px auto; border:0px solid red; text-align:center; }
+.header { margin:0px auto; border:0px solid red; width:320px; display:block; }
+.p2 { width:320px; margin:0px auto; }
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 </head>
@@ -18,6 +22,19 @@
 </div>
 </template>
 
+<template name="main">
+{{>nav}}
+{{>posts}}
+</template>
+
+<template name="nav">
+<div class="nav">
+<a href="posts">Page1</a>
+<a href="secondpage">Page2</a>
+</div>
+</template>
+
+
 <template name="post">
 <div class="post">
 <p class="description"><img src="http://graph.facebook.com/ryan.otoole.3766/picture" class="userphoto">
@@ -27,9 +44,24 @@ Ryan O. &mdash; foo man chu</p>
 </template>
 
 <template name="posts">
+{{>header}}
+{{>nav}}
 {{#each posts}}
 {{>post}}
 {{/each}}
 </template>
 
+<template name="header">
+{{#constant}}
+<img src="ExperiencePride.jpg" class="header"/>
+{{/constant}}
+</template>
+
+<template name="secondpage">
+{{>header}}
+{{>nav}}
+<div class="p2">
+<p>Second page</p>
+</div>
+</template>
 
